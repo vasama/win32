@@ -203,7 +203,18 @@
 
 #define NOMINMAX
 
+#ifdef _MSC_VER
+#	pragma warning(push)
+
+// C5105: macro expansion producing 'defined' has undefined behaviour
+#	pragma warning(disable: 5105)
+#endif
+
 #include <Windows.h>
+
+#ifdef _MSC_VER
+#	pragma warning(pop)
+#endif
 
 #undef NOMINMAX
 
